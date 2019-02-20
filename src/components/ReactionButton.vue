@@ -1,6 +1,8 @@
 <template>
   <div>
-    <button id="btn-reaction"  @click="addReaction">Click to add a HOORAY</button>
+    <button id="btn-reaction" @click="addReaction"
+      >Click to add a HOORAY</button
+    >
   </div>
 </template>
 
@@ -50,6 +52,9 @@ export default {
               title
               id
               body
+              author {
+                avatarUrl
+              }
             }
             name
           }
@@ -68,7 +73,7 @@ export default {
 </script>
 
 <style>
-#btn-reaction{
+#btn-reaction {
   background-color: black;
   color: white;
   border-color: black;

@@ -3,7 +3,7 @@
     <p>Selected Issue: {{ selected.number }}</p>
     <p>Title: {{ selected.title }}</p>
     <ReactionButton :selected="selected" />
-    <RemoveButton />
+    <RemoveButton :selected="selected" />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   name: 'IssueSelectedInfo',
   components: {
     ReactionButton,
-    RemoveButton
+    RemoveButton,
   },
   props: {
     selected: {
