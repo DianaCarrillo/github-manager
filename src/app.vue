@@ -1,90 +1,84 @@
+<template>
+  <div id="app">
+    <template if="user">
+      <h1 id="title">My Github manager</h1>
+      <User :user="user" />
+      <Issues :user="user" />
+    </template>
+  </div>
+</template>
+
 <script>
-import appConfig from '@src/app.config'
+import gql from 'graphql-tag'
+import User from '../src/components/User.vue'
+import Issues from '../src/components/Issues.vue'
 
 export default {
-  page: {
-    // All subcomponent titles will be injected into this template.
-    titleTemplate(title) {
-      title = typeof title === 'function' ? title(this.$store) : title
-      return title ? `${title} | ${appConfig.title}` : appConfig.title
+  name: 'App',
+  components: {
+    User,
+    Issues,
+  },
+  data() {
+    return {
+      userName: 'DianaCarrillo',
+      user: {},
+    }
+  },
+  apollo: {
+    user: {
+      query: gql`
+        query user($login: String!) {
+          user(login: $login) {
+            avatarUrl
+            bio
+            name
+            email
+            issues(first: 5) {
+              edges {
+                node {
+                  id
+                  title
+                  state
+                  number
+                  reactions(first: 1) {
+                    edges {
+                      node {
+                        content
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+      variables() {
+        return {
+          login: 'DianaCarrillo',
+        }
+      },
     },
   },
 }
 </script>
 
-<template>
-  <div id="app">
-    <!--
-    Even when routes use the same component, treat them
-    as distinct and create the component again.
-    -->
-    <RouterView :key="$route.fullPath" />
-  </div>
-</template>
-
-<!-- This should generally be the only global CSS in the app. -->
-<style lang="scss">
-// Allow element/type selectors, because this is global CSS.
-// stylelint-disable selector-max-type, selector-class-pattern
-
-// Normalize default styles across browsers,
-// https://necolas.github.io/normalize.css/
-@import '~normalize.css/normalize.css';
-// Style loading bar between pages.
-// https://github.com/rstacruz/nprogress
-@import '~nprogress/nprogress.css';
-
-// Design variables and utilities from src/design.
-@import '@design';
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  background: $color-body-bg;
-}
+<style>
 #app {
-  @extend %typography-small;
+  padding-bottom: 60px;
+  margin-top: 60px;
+  margin-left: 30px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-// ===
-// Base element styles
-// ===
-
-a,
-a:visited {
-  color: $color-link-text;
+#userName {
+  font-weight: bold;
 }
-
-h1 {
-  @extend %typography-xxlarge;
-}
-
-h2 {
-  @extend %typography-xlarge;
-}
-
-h3 {
-  @extend %typography-large;
-}
-
-h4 {
-  @extend %typography-medium;
-}
-
-h5,
-h6 {
-  @extend %typography-small;
-}
-
-// ===
-// Vendor
-// ===
-
-#nprogress .bar {
-  background: $color-link-text;
+#title {
+  margin-bottom: 100px;
+  text-align: center;
 }
 </style>

@@ -1,11 +1,50 @@
 import Vue from 'vue'
 import App from './app'
+import { ApolloClient } from 'apollo-client'
+import VueApollo from 'vue-apollo'
 import router from '@router'
 import store from '@state/store'
 import '@components/_globals'
+import { HttpLink } from 'apollo-link-http'
+import { setContext } from 'apollo-link-context'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+
+const accessToken = '7d50bfbf3c23f6bc8bd40d15a7f832e5c33949c9'
 
 // Don't warn about using the dev version of Vue in development.
-Vue.config.productionTip = process.env.NODE_ENV === 'production'
+Vue.config.productionTip = false
+
+const httpLink = new HttpLink({
+  // uri: 'https://countries.trevorblades.com/',
+  uri: `https://api.github.com/graphql?user_name="DianaCarrillo"&access_token=${accessToken}`,
+  // fetchOptions: {
+  //   mode: 'no-cors',
+  // },
+})
+const headers = new Headers()
+
+headers.append('Content-Type', 'appication/json')
+headers.append('Access-Control-Allow-Origin', 'http://localhost:8080')
+headers.append('Access-Control-Allow-Credentials', 'true')
+
+const middlewareLink = setContext(() => ({
+  headers,
+}))
+
+const link = middlewareLink.concat(httpLink)
+
+// const cors = require('cors')
+const apolloClient = new ApolloClient({
+  link,
+  cache: new InMemoryCache(),
+  connectToDevTools: true,
+})
+
+const apolloProvider = new VueApollo({
+  defaultClient: apolloClient,
+})
+
+Vue.use(VueApollo)
 
 // If running inside Cypress...
 if (window.Cypress) {
@@ -16,6 +55,7 @@ if (window.Cypress) {
 const app = new Vue({
   router,
   store,
+  apolloProvider,
   render: (h) => h(App),
 }).$mount('#app')
 
@@ -26,3 +66,4 @@ if (window.Cypress) {
   // such as `cy.logIn()`.
   window.__app__ = app
 }
+// export { apolloClient };
