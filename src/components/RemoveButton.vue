@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button id="btn-reaction"  @click="addReaction">Click to add a HOORAY</button>
+    <button id="btn-remove"  @click="removeReaction">Click to remove HOORAY</button>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ const addReactionIssue = gql`
   }
 `
 export default {
-  name: 'ReactionButton',
+  name: 'RemoveButton',
   props: {
     selected: {
       type: Object,
@@ -68,10 +68,11 @@ export default {
 </script>
 
 <style>
-#btn-reaction{
-  background-color: black;
+#btn-remove{
+  background-color:red;
   color: white;
-  border-color: black;
+  border-color: red;
   padding: 10px;
+  margin: 1%
 }
 </style>

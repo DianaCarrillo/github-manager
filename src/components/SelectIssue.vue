@@ -1,5 +1,7 @@
 <template>
   <div>
+    <p> REPOSITORY: </p>
+       <p>Issue # </p>
     <select v-model="selected">
       <option v-for="i in user.issues.edges" :key="i.id" :value="i.node">{{
         i.node.number

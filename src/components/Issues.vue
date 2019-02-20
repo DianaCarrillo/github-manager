@@ -1,12 +1,14 @@
 <template>
   <div>
-    <p> REPOSITORY: {{ repository.name }}</p>
+    <section id="select-issue">
+       <SelectIssue :user="user" />
+    </section>
+
     <p>Issues:</p>
     <div v-for="iss in user.issues.edges" :key="iss.id">
       <EachIssue :iss="iss" />
     </div>
-    <p>Issue # </p>
-    <SelectIssue :user="user" />
+
   </div>
 </template>
 
@@ -33,3 +35,11 @@ export default {
   },
 }
 </script>
+
+<style>
+#select-issue{
+text-align: center;
+position: relative;
+top:-400px;
+}
+</style>

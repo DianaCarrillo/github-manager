@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="user-section">
     <img :src="user.avatarUrl" alt="" width="250" />
     <p id="userName"> {{ user.name }}</p>
     <p id="userName"> {{ user.email }}</p>
@@ -19,3 +19,9 @@ export default {
   },
 }
 </script>
+
+<style>
+#user-section{
+  /* text-align: center */
+}
+</style>

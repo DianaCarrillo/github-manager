@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <template if="user">
-      <h1 id="title">My Github manager</h1>
+      <h2 id="title">My Github manager</h2>
       <User :user="user" />
       <Issues :user="user" />
     </template>
