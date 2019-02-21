@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <template if="user">
-      <h2 id="title">My Github manager</h2>
+      <h2 id="title">Github manager</h2>
       <User :user="user" />
       <Issues :user="user" />
     </template>
@@ -34,13 +34,22 @@ export default {
             bio
             name
             email
+            status {
+              id
+              message
+            }
             issues(first: 5) {
               edges {
                 node {
                   id
+                  body
                   title
                   state
                   number
+                  author {
+                    avatarUrl
+                    login
+                  }
                   reactions(first: 1) {
                     edges {
                       node {
@@ -78,7 +87,7 @@ export default {
   font-weight: bold;
 }
 #title {
-  margin-bottom: 100px;
+  margin-bottom: 30px;
   text-align: center;
 }
 </style>

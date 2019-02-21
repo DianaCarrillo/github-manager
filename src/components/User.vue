@@ -1,16 +1,24 @@
 <template>
   <section id="user-section">
-    <img :src="user.avatarUrl" alt="" width="250" />
+    <div class="user">
+      <img :src="user.avatarUrl" alt="" width="350" height="370px" />
+      <Status :user="user" />
+    </div>
+
     <p id="userName"> {{ user.name }}</p>
-    <p id="userName"> {{ user.email }}</p>
+    <p id="userEmail"> {{ user.email }}</p>
 
     <p> Bio: {{ user.bio }}</p>
   </section>
 </template>
 
 <script>
+import Status from './Status.vue'
 export default {
   name: 'User',
+  components: {
+    Status,
+  },
   props: {
     user: {
       type: Object,
@@ -21,7 +29,19 @@ export default {
 </script>
 
 <style>
-#user-section{
+#user-section {
+  position: relative;
+  left: 500px;
+  /* background-color: gray; */
+  /* padding-left: 100%;; */
+  /* padding-right: -300px; */
+
   /* text-align: center */
+}
+#userName {
+  font-size: 30px;
+}
+.user {
+  border: black;
 }
 </style>

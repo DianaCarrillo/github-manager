@@ -1,15 +1,17 @@
 <template>
   <div>
-    <button id="btn-remove"  @click="removeReaction">Click to remove HOORAY</button>
+    <button type="submit" id="btn-remove" @click="removeReaction"
+      >Click to remove HOORAY</button
+    >
   </div>
 </template>
 
 <script>
 import gql from 'graphql-tag'
 
-const addReactionIssue = gql`
-  mutation AddReactionToIssue($input: AddReactionInput!) {
-    addReaction(input: $input) {
+const removeReactionIssue = gql`
+  mutation removeReactionToIssue($input: RemoveReactionInput!) {
+    removeReaction(input: $input) {
       reaction {
         id
         content
@@ -30,9 +32,10 @@ export default {
   },
 
   methods: {
-    addReaction: function() {
+    removeReaction: function() {
+      location.reload();
       this.$apollo.mutate({
-        mutation: addReactionIssue,
+        mutation: removeReactionIssue,
         variables: {
           input: { subjectId: this.selected.id, content: 'HOORAY' },
         },
@@ -68,11 +71,11 @@ export default {
 </script>
 
 <style>
-#btn-remove{
+#btn-remove {
+  background-color: rgb(219, 237, 255);
+  color: black;
+  border-color: rgb(219, 237, 255);
   padding: 10px;
   margin: 1%;
-  color: white;
-  background-color:red;
-  border-color: red
 }
 </style>

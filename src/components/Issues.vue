@@ -1,14 +1,11 @@
 <template>
-  <div>
+  <div id="issues-list">
     <section id="select-issue">
-       <SelectIssue :user="user" />
+      <SelectIssue :user="user" />
     </section>
-
-    <p>Issues:</p>
     <div v-for="iss in user.issues.edges" :key="iss.id">
       <EachIssue :iss="iss" />
     </div>
-
   </div>
 </template>
 
@@ -37,9 +34,12 @@ export default {
 </script>
 
 <style>
-#select-issue{
-position: relative;
-top:-400px;
-text-align: center;
+#select-issue {
+  position: relative;
+  margin-top: 70px;
+  /* top: -100px; */
+  left: 10px;
+  text-align: center;
+  border-color: black;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div>
-    <p> REPOSITORY: </p>
-       <p>Issue # </p>
+    <p id="issue-p">Issue # </p>
     <select v-model="selected">
       <option v-for="i in user.issues.edges" :key="i.id" :value="i.node">{{
         i.node.number
@@ -31,3 +30,14 @@ export default {
   },
 }
 </script>
+
+<style>
+select{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#issue-p{
+  display: inline-block;
+  margin-right: 10px;
+}
+</style>

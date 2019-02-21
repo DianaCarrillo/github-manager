@@ -1,9 +1,9 @@
 <template>
   <div>
-    <p>Selected Issue: {{ selected.number }}</p>
-    <p>Title: {{ selected.title }}</p>
+    <p> <b>Selected Issue:</b>  {{ selected.number }}</p>
+    <p> <b>Title:</b>  {{ selected.title }}</p>
     <ReactionButton :selected="selected" />
-    <RemoveButton />
+    <RemoveButton :selected="selected" />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   name: 'IssueSelectedInfo',
   components: {
     ReactionButton,
-    RemoveButton
+    RemoveButton,
   },
   props: {
     selected: {
