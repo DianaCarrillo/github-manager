@@ -69,10 +69,10 @@ export default {
 
 <style>
 #btn-remove{
-  background-color:red;
-  color: white;
-  border-color: red;
   padding: 10px;
-  margin: 1%
+  margin: 1%;
+  color: white;
+  background-color:red;
+  border-color: red
 }
 </style>

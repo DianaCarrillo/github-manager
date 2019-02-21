@@ -38,8 +38,8 @@ export default {
 
 <style>
 #select-issue{
-text-align: center;
 position: relative;
 top:-400px;
+text-align: center;
 }
 </style>

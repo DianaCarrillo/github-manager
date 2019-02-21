@@ -69,9 +69,9 @@ export default {
 
 <style>
 #btn-reaction{
-  background-color: black;
-  color: white;
-  border-color: black;
   padding: 10px;
+  color: white;
+  background-color: black;
+  border-color: black;
 }
 </style>
