@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="submit" id="btn-remove" @click="removeReaction"
+    <button id="btn-remove" type="submit" @click="removeReaction"
       >Click to remove HOORAY</button
     >
   </div>
@@ -33,7 +33,7 @@ export default {
 
   methods: {
     removeReaction: function() {
-      location.reload();
+      location.reload()
       this.$apollo.mutate({
         mutation: removeReactionIssue,
         variables: {

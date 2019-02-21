@@ -1,8 +1,9 @@
 <template>
-  <div id="app">
+  <div>
+    <Navbar />
     <template if="user">
-      <h2 id="title">Github manager</h2>
-      <User :user="user" />
+      <Home :user="user" />
+      <Repositories :user="user" />
       <Issues :user="user" />
     </template>
   </div>
@@ -10,14 +11,17 @@
 
 <script>
 import gql from 'graphql-tag'
-import User from '../src/components/User.vue'
+import Home from '../src/components/Home.vue'
+import Navbar from '../src/components/Navbar.vue'
 import Issues from '../src/components/Issues.vue'
-
+import Repositories from '../src/components/Repositories.vue'
 export default {
   name: 'App',
   components: {
-    User,
+    Home,
     Issues,
+    Repositories,
+    Navbar,
   },
   data() {
     return {
@@ -34,6 +38,14 @@ export default {
             bio
             name
             email
+            repositories(last: 3) {
+              edges {
+                node {
+                  name
+                  id
+                }
+              }
+            }
             status {
               id
               message
@@ -76,8 +88,7 @@ export default {
 <style>
 #app {
   padding-bottom: 60px;
-  margin-top: 60px;
-  margin-left: 30px;
+  margin-left: 70px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   color: #2c3e50;
   -webkit-font-smoothing: antialiased;
@@ -85,9 +96,5 @@ export default {
 }
 #userName {
   font-weight: bold;
-}
-#title {
-  margin-bottom: 30px;
-  text-align: center;
 }
 </style>

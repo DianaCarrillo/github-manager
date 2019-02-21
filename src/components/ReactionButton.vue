@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="submit" id="btn-reaction" @click="addReaction"
+    <button id="btn-reaction" type="submit" @click="addReaction"
       >Click to add a HOORAY</button
     >
   </div>
@@ -33,7 +33,7 @@ export default {
 
   methods: {
     addReaction: function() {
-      location.reload();
+      location.reload()
       this.$apollo.mutate({
         mutation: addReactionIssue,
         variables: {
@@ -75,11 +75,10 @@ export default {
 
 <style>
 #btn-reaction {
-  background-color: black;
+  padding: 10px;
+  margin: 1%;
   color: white;
   background-color: black;
   border-color: black;
-    padding: 10px;
-  margin: 1%;
 }
 </style>

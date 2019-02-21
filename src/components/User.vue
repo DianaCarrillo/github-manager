@@ -31,13 +31,10 @@ export default {
 <style>
 #user-section {
   position: relative;
-  left: 500px;
-  /* background-color: gray; */
-  /* padding-left: 100%;; */
-  /* padding-right: -300px; */
-
-  /* text-align: center */
+  top: 30px;
+  left: 100px;
 }
+
 #userName {
   font-size: 30px;
 }
