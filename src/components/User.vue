@@ -32,8 +32,11 @@ export default {
 #user-section {
   position: relative;
   left: 500px;
+
   /* background-color: gray; */
+
   /* padding-left: 100%;; */
+
   /* padding-right: -300px; */
 
   /* text-align: center */

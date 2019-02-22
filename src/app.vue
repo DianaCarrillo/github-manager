@@ -46,6 +46,7 @@ export default {
                   title
                   state
                   number
+                  repository
                   author {
                     avatarUrl
                     login

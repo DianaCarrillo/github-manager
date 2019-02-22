@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="submit" id="btn-reaction" @click="addReaction"
+    <button id="btn-reaction" type="submit" @click="addReaction"
       >Click to add a HOORAY</button
     >
   </div>
@@ -75,11 +75,11 @@ export default {
 
 <style>
 #btn-reaction {
-  background-color: black;
-  color: white;
-  background-color: black;
-  border-color: black;
     padding: 10px;
   margin: 1%;
+  color: white;
+  background-color: black;
+  background-color: black;
+  border-color: black;
 }
 </style>

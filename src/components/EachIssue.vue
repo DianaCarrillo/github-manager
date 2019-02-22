@@ -41,10 +41,10 @@ export default {
 }
 #issues {
   position: relative;
-  border: solid;
-  border-radius: 30px;
   margin-right: 300px;
   margin-left: 300px;
+  border: solid;
+  border-radius: 30px;
 
   /* left: 600px; */
 }

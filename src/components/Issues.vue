@@ -36,9 +36,10 @@ export default {
 <style>
 #select-issue {
   position: relative;
-  margin-top: 70px;
+
   /* top: -100px; */
   left: 10px;
+  margin-top: 70px;
   text-align: center;
   border-color: black;
 }

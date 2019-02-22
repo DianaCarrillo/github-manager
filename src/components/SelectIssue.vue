@@ -33,8 +33,8 @@ export default {
 
 <style>
 select{
-    padding-left: 10px;
     padding-right: 10px;
+    padding-left: 10px;
 }
 #issue-p{
   display: inline-block;

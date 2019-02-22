@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="submit" id="btn-remove" @click="removeReaction"
+    <button id="btn-remove" type="submit" @click="removeReaction"
       >Click to remove HOORAY</button
     >
   </div>
@@ -72,10 +72,10 @@ export default {
 
 <style>
 #btn-remove {
-  background-color: rgb(219, 237, 255);
-  color: black;
-  border-color: rgb(219, 237, 255);
   padding: 10px;
   margin: 1%;
+  color: black;
+  background-color: rgb(219, 237, 255);
+  border-color: rgb(219, 237, 255);
 }
 </style>
