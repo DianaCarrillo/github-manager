@@ -1,15 +1,23 @@
 import Vue from 'vue'
 import App from './app'
-import { ApolloClient } from 'apollo-client'
+import {
+  ApolloClient
+} from 'apollo-client'
 import VueApollo from 'vue-apollo'
 import router from '@router'
 import store from '@state/store'
 import '@components/_globals'
-import { HttpLink } from 'apollo-link-http'
-import { setContext } from 'apollo-link-context'
-import { InMemoryCache } from 'apollo-cache-inmemory'
+import {
+  HttpLink
+} from 'apollo-link-http'
+import {
+  setContext
+} from 'apollo-link-context'
+import {
+  InMemoryCache
+} from 'apollo-cache-inmemory'
 
-const accessToken = '2c1c3f5f4a3cd98adee70c7a5de7007ebe48e383'
+const accessToken = 'e1c64ef52bb7e86ea93a92c6123a80e795fcc24f'
 
 // Don't warn about using the dev version of Vue in development.
 Vue.config.productionTip = false
@@ -23,7 +31,7 @@ const httpLink = new HttpLink({
 })
 const headers = new Headers()
 
-headers.append('Content-Type', 'appication/json')
+headers.append('Content-Type', 'application/json')
 headers.append('Access-Control-Allow-Origin', 'http://localhost:8080')
 headers.append('Access-Control-Allow-Credentials', 'true')
 

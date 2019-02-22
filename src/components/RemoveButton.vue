@@ -33,7 +33,7 @@ export default {
 
   methods: {
     removeReaction: function() {
-      location.reload();
+      location.reload()
       this.$apollo.mutate({
         mutation: removeReactionIssue,
         variables: {

@@ -33,7 +33,7 @@ export default {
 
   methods: {
     addReaction: function() {
-      location.reload();
+      location.reload()
       this.$apollo.mutate({
         mutation: addReactionIssue,
         variables: {
@@ -75,7 +75,7 @@ export default {
 
 <style>
 #btn-reaction {
-    padding: 10px;
+  padding: 10px;
   margin: 1%;
   color: white;
   background-color: black;
