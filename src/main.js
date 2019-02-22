@@ -1,23 +1,15 @@
 import Vue from 'vue'
 import App from './app'
-import {
-  ApolloClient
-} from 'apollo-client'
+import { ApolloClient } from 'apollo-client'
 import VueApollo from 'vue-apollo'
 import router from '@router'
 import store from '@state/store'
 import '@components/_globals'
-import {
-  HttpLink
-} from 'apollo-link-http'
-import {
-  setContext
-} from 'apollo-link-context'
-import {
-  InMemoryCache
-} from 'apollo-cache-inmemory'
+import { HttpLink } from 'apollo-link-http'
+import { setContext } from 'apollo-link-context'
+import { InMemoryCache } from 'apollo-cache-inmemory'
 
-const accessToken = 'e1c64ef52bb7e86ea93a92c6123a80e795fcc24f'
+const accessToken = '4fdc01efbf8eb41fabf2ec8b966342b06ddcdfda'
 
 // Don't warn about using the dev version of Vue in development.
 Vue.config.productionTip = false

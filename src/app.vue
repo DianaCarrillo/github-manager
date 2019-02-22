@@ -4,7 +4,7 @@
     <template if="user">
       <Home :user="user" />
       <Repositories :user="user" />
-      <Issues :user="user" />
+      <!-- <Issues :user="user" /> -->
     </template>
   </div>
 </template>
@@ -13,13 +13,13 @@
 import gql from 'graphql-tag'
 import Home from '../src/components/Home.vue'
 import Navbar from '../src/components/Navbar.vue'
-import Issues from '../src/components/Issues.vue'
+// import Issues from '../src/components/Issues.vue'
 import Repositories from '../src/components/Repositories.vue'
 export default {
   name: 'App',
   components: {
     Home,
-    Issues,
+    // Issues,
     Repositories,
     Navbar,
   },
@@ -58,7 +58,6 @@ export default {
                   title
                   state
                   number
-                  repository
                   author {
                     avatarUrl
                     login

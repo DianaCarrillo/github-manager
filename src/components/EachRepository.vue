@@ -3,77 +3,26 @@
     <ul>
       <li class="repo-li">
         {{ repository.node.name }}
-        {{ repository.node.id }}
-
-        <p>
-          <i
-            :id="repository.node.id"
-            class="far fa-star"
-            @click="addStarMethods($event)"
-          ></i>
-        </p>
+        <Star :repository="repository"/>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import gql from 'graphql-tag'
+import Star from './Star.vue'
 
-const addStar = gql`
-  mutation addStar($input: AddStarInput!) {
-    addStar(input: $input) {
-      starrable {
-        id
-      }
-    }
-  }
-`
 export default {
   name: 'EachRepository',
+    components: {
+    Star
+  },
   props: {
     repository: {
       type: Object,
       required: true,
     },
-  },
-  methods: {
-    clickEvent: function(e) {
-      console.log(e)
-    },
-    addStar: function() {
-      this.$apollo.mutate({
-        mutation: addStar,
-        variables: {
-          input: { starrableId: 'MDEwOlJlcG9zaXRvcnkxNzA3MTkxNzg=' },
-        },
-      })
-    },
-    addStarMethods: function() {
-      this.clickEvent()
-      this.addStar()
-    },
-  },
-  // apollo: {
-  //   repository: {
-  //     query: gql`
-  //       query FindRepositoriesID($owner: String!, $name: String!) {
-  //         repositories(last:3) {
-  //           }
-  //           name
-  //           id
-  //         }
-  //       }
-  //     `,
-  //     variables() {
-  //       return {
-  //         owner: 'DianaCarrillo',
-  //         name: 'cdmx-2018-01-FE-markdown',
-  //         number: this.selected.number,
-  //       }
-  //     },
-  //   },
-  // },
+  }
 }
 </script>
 
@@ -85,8 +34,5 @@ export default {
   border: solid thin;
   border-color: rgb(232, 234, 236);
 }
-.far {
-  position: relative;
-  top: 20px;
-}
+
 </style>
