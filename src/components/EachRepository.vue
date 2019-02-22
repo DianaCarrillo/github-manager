@@ -3,7 +3,10 @@
     <ul>
       <li class="repo-li">
         {{ repository.node.name }}
-        <Star :repository="repository"/>
+        <p>
+          <Star :repository="repository"/>
+          <Unstar :repository="repository"/>
+        </p>
       </li>
     </ul>
   </div>
@@ -11,11 +14,13 @@
 
 <script>
 import Star from './Star.vue'
+import Unstar from './UnStar.vue'
 
 export default {
   name: 'EachRepository',
     components: {
-    Star
+    Star,
+    Unstar
   },
   props: {
     repository: {
@@ -29,10 +34,11 @@ export default {
 <style>
 .repo-li {
   width: 398px;
-  padding: 30px;
+  padding: 20px;
   margin-top: 30px;
   border: solid thin;
   border-color: rgb(232, 234, 236);
+  list-style: none;
 }
 
 </style>

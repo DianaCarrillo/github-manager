@@ -1,12 +1,10 @@
 <template>
   <div>
-       <p>
           <i
             :id="repository.node.id"
             class="far fa-star"
             @click="addStarMethods($event)"
           ></i>
-        </p>
   </div>
 </template>
 
