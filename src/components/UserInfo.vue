@@ -1,3 +1,4 @@
+/* eslint-disable no-labels */
 <template>
   <section id="user-section">
     <div class="user">
@@ -7,22 +8,42 @@
 
     <p id="userName"> {{ user.name }}</p>
     <p id="userEmail"> {{ user.email }}</p>
-
     <p> Bio: {{ user.bio }}</p>
   </section>
 </template>
 
 <script>
-import Status from './Status.vue'
+// import User from './User.vue'
+import gql from 'graphql-tag'
+
 export default {
-  name: 'User',
+  name: 'Home',
   components: {
-    Status,
+    // User,
   },
-  props: {
+  data() {
+    return {
+      userName: 'DianaCarrillo',
+      user: {},
+    }
+  },
+  apollo: {
     user: {
-      type: Object,
-      required: true,
+      query: gql`
+        query user($login: String!) {
+          user(login: $login) {
+            avatarUrl
+            bio
+            name
+            email
+          }
+        }
+      `,
+      variables() {
+        return {
+          login: 'DianaCarrillo',
+        }
+      },
     },
   },
 }

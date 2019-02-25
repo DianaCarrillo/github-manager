@@ -12,7 +12,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div id="navbarNav" class="collapse navbar-collapse">
+    <!-- <div id="navbarNav" class="collapse navbar-collapse">
       <ul class="navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="#"
@@ -26,7 +26,7 @@
           <a class="nav-link" href="#">Issues</a>
         </li>
       </ul>
-    </div>
+    </div> -->
   </nav>
 </template>
 

@@ -1,10 +1,10 @@
 <template>
   <div>
-          <i
-            :id="repository.node.id"
-            class="far fa-star"
-            @click="addStarMethods($event)"
-          ></i>
+    <i
+      :id="repository.node.id"
+      class="far fa-star"
+      @click="addStarMethods($event)"
+    ></i>
   </div>
 </template>
 
@@ -22,13 +22,13 @@ const addStar = gql`
 `
 export default {
   name: 'Star',
-    props: {
+  props: {
     repository: {
       type: Object,
       required: true,
     },
   },
-    methods: {
+  methods: {
     clickEventId: function(event) {
       document.getElementById(this.repository.node.id).style.color = 'blue'
     },
@@ -54,7 +54,7 @@ export default {
   top: 20px;
 }
 
-.color-changer{
+.color-changer {
   color: blue;
 }
 </style>
