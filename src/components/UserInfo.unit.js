@@ -2,8 +2,8 @@ import UserInfo from './UserInfo.vue'
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 
 describe('Displayed user correctly with query data', () => {
-  it('displayd information quet data correctly', () => {
-    const localVue = createLocalVue()
+  it('displayed information query data correctly', () => {
+    let localVue = createLocalVue()
     const wrapper = shallowMount(UserInfo, { localVue })
     wrapper.setData({
       user: {
@@ -17,6 +17,6 @@ describe('Displayed user correctly with query data', () => {
         },
       },
     })
-    expect(wrapper.element).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

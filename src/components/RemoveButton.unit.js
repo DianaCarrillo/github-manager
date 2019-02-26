@@ -1,11 +1,11 @@
-import ReactionButton from './ReactionButton.vue'
+import RemoveButton from './RemoveButton.vue'
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 
-describe('./ReactButton.vue', () => {
+describe('./RemoveButton.vue', () => {
   it('called Apollo mutation in addReaction method', () => {
     let localVue = createLocalVue()
     const mutate = jest.fn()
-    const wrapper = shallowMount(ReactionButton, {
+    const wrapper = shallowMount(RemoveButton, {
       propsData: {
         selected: {
           author: {
@@ -27,13 +27,13 @@ describe('./ReactButton.vue', () => {
         },
       },
     })
-    wrapper.vm.addReaction()
+    wrapper.vm.removeReaction()
     expect(mutate).toBeCalled()
   })
 
-  it('ReactionButton instance exists', () => {
+  it('ReactionButton exists', () => {
     let localVue = createLocalVue()
-    const wrapper = shallowMount(ReactionButton, {
+    const wrapper = shallowMount(RemoveButton, {
       propsData: {
         selected: {
           author: {

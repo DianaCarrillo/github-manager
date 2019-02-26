@@ -30,7 +30,8 @@ export default {
   },
   methods: {
     clickEventId: function(event) {
-      document.getElementById(this.repository.node.id).style.color = 'blue'
+      console.log('hey')
+      // document.getElementById(this.repository.node.id).style.color = 'blue'
     },
     addStar: function(event) {
       this.$apollo.mutate({

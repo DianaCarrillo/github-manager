@@ -7,12 +7,10 @@
         <h3 id="issue"> Issue #{{ iss.node.number }}</h3>
         <p>Title: {{ iss.node.title }}</p>
         <p v-if="iss.node.state === 'OPEN'" id="green"> {{ iss.node.state }}</p>
-        <p v-else id="red">
-          {{ iss.node.state }}</p
-        >
+        <p v-else id="red"> {{ iss.node.state }}</p>
         <p> {{ iss.node.body }}</p>
-        <p v-for="node in iss.node.reactions.edges" :key="node.id">
-          <b>Reactions: </b> {{ node.node.content }}</p
+        <p v-for="reaction in iss.node.reactions.edges" :key="reaction.id">
+          <b>Reactions: </b> {{ reaction.node.content }}</p
         >
         <p> </p>
       </li>

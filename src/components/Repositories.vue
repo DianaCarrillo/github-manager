@@ -2,7 +2,7 @@
   <div id="repos">
     <h5>Last 3 repositories</h5>
     <EachRepository
-      v-for="repository in user.repositories.edges"
+      v-for="repository in user.repositories && user.repositories.edges"
       :key="repository.id"
       :repository="repository"
     />
@@ -10,16 +10,39 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
 import EachRepository from './EachRepository.vue'
 export default {
   name: 'Repositories',
   components: {
     EachRepository,
   },
-  props: {
+  data() {
+    return {
+      user: {},
+    }
+  },
+  apollo: {
     user: {
-      type: Object,
-      required: true,
+      query: gql`
+        query user($login: String!) {
+          user(login: $login) {
+            repositories(last: 3) {
+              edges {
+                node {
+                  name
+                  id
+                }
+              }
+            }
+          }
+        }
+      `,
+      variables() {
+        return {
+          login: 'DianaCarrillo',
+        }
+      },
     },
   },
 }

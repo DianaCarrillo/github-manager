@@ -79,7 +79,6 @@ export default {
   margin: 1%;
   color: white;
   background-color: black;
-  background-color: black;
   border-color: black;
 }
 </style>

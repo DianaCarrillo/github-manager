@@ -2,9 +2,12 @@
   <div>
     <p id="issue-p">Issue # </p>
     <select v-model="selected">
-      <option v-for="i in user.issues.edges" :key="i.id" :value="i.node">{{
-        i.node.number
-      }}</option>
+      <option
+        v-for="i in user.issues && user.issues.edges"
+        :key="i.id"
+        :value="i.node"
+        >{{ i.node.number }}</option
+      >
     </select>
     <IssueSelectedInfo :selected="selected" />
   </div>
@@ -32,11 +35,11 @@ export default {
 </script>
 
 <style>
-select{
-    padding-right: 10px;
-    padding-left: 10px;
+select {
+  padding-right: 10px;
+  padding-left: 10px;
 }
-#issue-p{
+#issue-p {
   display: inline-block;
   margin-right: 10px;
 }

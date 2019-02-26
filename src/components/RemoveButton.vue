@@ -30,7 +30,11 @@ export default {
       required: true,
     },
   },
-
+  data() {
+    return {
+      repository: {},
+    }
+  },
   methods: {
     removeReaction: function() {
       location.reload()

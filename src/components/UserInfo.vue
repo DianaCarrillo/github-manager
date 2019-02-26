@@ -3,7 +3,7 @@
   <section id="user-section">
     <div class="user">
       <img :src="user.avatarUrl" alt="" width="350" height="370px" />
-      <Status :user="user" />
+      <p>{{ user.status && user.status.message }}</p>
     </div>
 
     <p id="userName"> {{ user.name }}</p>
@@ -13,16 +13,10 @@
 </template>
 
 <script>
-// import User from './User.vue'
 import gql from 'graphql-tag'
-import Status from './Status.vue'
 
 export default {
-  name: 'Home',
-  components: {
-    Status,
-    // User,
-  },
+  name: 'UserInfo',
   data() {
     return {
       userName: 'DianaCarrillo',
