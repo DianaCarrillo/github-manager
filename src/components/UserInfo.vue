@@ -15,10 +15,12 @@
 <script>
 // import User from './User.vue'
 import gql from 'graphql-tag'
+import Status from './Status.vue'
 
 export default {
   name: 'Home',
   components: {
+    Status,
     // User,
   },
   data() {
@@ -36,6 +38,10 @@ export default {
             bio
             name
             email
+            status {
+              id
+              message
+            }
           }
         }
       `,

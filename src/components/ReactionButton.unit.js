@@ -1,10 +1,10 @@
 import ReactionButton from './ReactionButton'
-import { CreatelocalVue, mount } from '@vue/test-utils'
+import { createLocalVue, mount } from '@vue/test-utils'
 
 describe('./ReactButton.vue', () => {
   let localVue
   it('called Apollo mutation in addReaction method', () => {
-    localVue = CreatelocalVue
+    localVue = createLocalVue
     const mutate = jest.fn()
     const wrapper = mount(ReactionButton, {
       propsData: {

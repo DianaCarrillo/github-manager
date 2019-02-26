@@ -16,7 +16,7 @@ import Navbar from './Navbar.vue'
 import Issues from './Issues.vue'
 import Repositories from './Repositories.vue'
 export default {
-  name: 'GithubApp',
+  name: 'HomeApp',
   components: {
     UserInfo,
     Issues,
@@ -56,10 +56,6 @@ export default {
                   # }
                 }
               }
-            }
-            status {
-              id
-              message
             }
             issues(first: 5) {
               edges {

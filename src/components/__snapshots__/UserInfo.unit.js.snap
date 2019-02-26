@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Displayed user correctly with query data displayd information quet data correctly 1`] = `
+<section
+  id="user-section"
+>
+  <div
+    class="user"
+  >
+    <img
+      alt=""
+      height="370px"
+      src="https://avatars0.githubusercontent.com/u/39560661?v=4"
+      width="350"
+    />
+     
+    <status
+      user="[object Object]"
+    />
+  </div>
+   
+  <p
+    id="userName"
+  >
+     Diana
+  </p>
+   
+  <p
+    id="userEmail"
+  >
+     carrillorivera.diana@gmail.com
+  </p>
+   
+  <p>
+     Bio: Coder, psychologist, catlover
+  </p>
+</section>
+`;
