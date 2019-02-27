@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button id="btn-remove" type="submit" @click="removeReaction"
+    <button id="btnRemove" type="submit" @click="removeReaction"
       >Click to remove HOORAY</button
     >
   </div>
@@ -75,7 +75,7 @@ export default {
 </script>
 
 <style>
-#btn-remove {
+#btnRemove {
   padding: 10px;
   margin: 1%;
   color: black;

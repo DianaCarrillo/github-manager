@@ -1,8 +1,13 @@
 <template>
   <div>
     <ul id="issues">
-      <li>
-        <img :src="iss.node.author.avatarUrl" alt="" width="40px" />
+      <li class="list">
+        <img
+          class="imgIssue"
+          :src="iss.node.author.avatarUrl"
+          alt=""
+          width="40px"
+        />
         <!-- <p id="login-name"> {{ iss.node.author.login }} </p> -->
         <h3 id="issue"> Issue #{{ iss.node.number }}</h3>
         <p>Title: {{ iss.node.title }}</p>
@@ -30,13 +35,6 @@ export default {
 }
 </script>
 <style>
-#issue {
-  font-weight: bolder;
-}
-#issue-list {
-  position: relative;
-  top: -400px;
-}
 #issues {
   position: relative;
   margin-right: 300px;
@@ -46,27 +44,24 @@ export default {
 
   /* left: 600px; */
 }
-li {
+.list {
   list-style: none;
 }
-img {
+.imgIssue {
   margin-top: 2%;
   margin-right: 3%;
 }
-#login-name {
-  position: relative;
-  top: -50px;
-  left: 50px;
-}
+
 #green {
   color: rgb(44, 190, 78);
 }
 #red {
   color: red;
 }
-h3 {
+#issue {
   display: inline-block;
   margin-right: 3px;
   margin-left: 3px;
+  font-weight: bolder;
 }
 </style>

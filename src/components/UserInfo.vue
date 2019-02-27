@@ -1,7 +1,7 @@
 /* eslint-disable no-labels */
 <template>
-  <section id="user-section">
-    <div class="user">
+  <section id="user">
+    <div class="userClass">
       <img :src="user.avatarUrl" alt="" width="350" height="370px" />
       <p>{{ user.status && user.status.message }}</p>
     </div>
@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style>
-#user-section {
+#user {
   position: relative;
   top: 30px;
   left: 100px;
@@ -59,7 +59,7 @@ export default {
 #userName {
   font-size: 30px;
 }
-.user {
+.userClass {
   border: black;
 }
 </style>

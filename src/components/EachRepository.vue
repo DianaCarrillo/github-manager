@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li class="repo-li">
+      <li class="repoLi">
         {{ repository.node.name }}
         <p>
           <Star :repository="repository" />
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style>
-.repo-li {
+.repoLi {
   width: 398px;
   padding: 20px;
   margin-top: 30px;
