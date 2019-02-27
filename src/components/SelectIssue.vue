@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p id="issue-p">Issue # </p>
-    <select v-model="selected">
+    <p id="issueP">Issue # </p>
+    <select id="selectid" v-model="selected">
       <option
         v-for="i in user.issues && user.issues.edges"
         :key="i.id"
@@ -35,11 +35,11 @@ export default {
 </script>
 
 <style>
-select {
+#selectid {
   padding-right: 10px;
   padding-left: 10px;
 }
-#issue-p {
+#issueP {
   display: inline-block;
   margin-right: 10px;
 }

@@ -1,11 +1,11 @@
-import Star from './Star.vue'
+import EachRepository from './EachRepository.vue'
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 
 describe('./Star.vue', () => {
-  it('called Apollo mutation in addStar method', () => {
+  it('called Apollo mutation in addStar and unstar methods', () => {
     let localVue = createLocalVue()
     const mutate = jest.fn()
-    const wrapper = shallowMount(Star, {
+    const wrapper = shallowMount(EachRepository, {
       propsData: {
         repository: {
           node: {
@@ -21,11 +21,9 @@ describe('./Star.vue', () => {
         },
       },
     })
-    const i = wrapper.find('i')
-    i.trigger('click', {
-      target: { starrableId: 'MDEwOlJlcG9zaXRvcnkxNjg3NTcyNjY=' },
-    })
     wrapper.vm.addStar()
+    expect(mutate).toBeCalled()
+    wrapper.vm.unstar()
     expect(mutate).toBeCalled()
   })
 })

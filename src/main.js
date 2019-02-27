@@ -9,7 +9,7 @@ import { HttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
-const accessToken = 'd1c119cf0d89931eafd853cd4b0e95278f12d272'
+const accessToken = '843dae6294974a26ac6bb31ffcd09fb3cb7fad96'
 
 // Don't warn about using the dev version of Vue in development.
 Vue.config.productionTip = false

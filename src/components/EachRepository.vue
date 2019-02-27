@@ -4,8 +4,17 @@
       <li class="repoLi">
         {{ repository.node.name }}
         <p>
-          <Star :repository="repository" />
-          <Unstar :repository="repository" />
+          <i
+            :id="repository.node.id"
+            class="far fa-star"
+            @click="addStarMethods(repository.node.id)"
+          ></i>
+          <button
+            :id="repository.node.id"
+            class="unstar"
+            @click="unstar(repository.node.id)"
+            >unstar</button
+          >
         </p>
       </li>
     </ul>
@@ -13,19 +22,57 @@
 </template>
 
 <script>
-import Star from './Star.vue'
-import Unstar from './UnStar.vue'
+import gql from 'graphql-tag'
 
+const unstar = gql`
+  mutation removeStar($input: RemoveStarInput!) {
+    removeStar(input: $input) {
+      starrable {
+        id
+      }
+    }
+  }
+`
+const addStar = gql`
+  mutation addStar($input: AddStarInput!) {
+    addStar(input: $input) {
+      starrable {
+        id
+      }
+    }
+  }
+`
 export default {
   name: 'EachRepository',
-  components: {
-    Star,
-    Unstar,
-  },
   props: {
     repository: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    unstar: function(id) {
+      this.$apollo.mutate({
+        mutation: unstar,
+        variables: {
+          input: { starrableId: id },
+        },
+      })
+    },
+    addStar: function(id) {
+      this.$apollo.mutate({
+        mutation: addStar,
+        variables: {
+          input: { starrableId: id },
+        },
+      })
+    },
+    clickEventId: function(id) {
+      document.getElementById(this.repository.node.id).style.color = 'blue'
+    },
+    addStarMethods: function(id) {
+      this.clickEventId(id)
+      this.addStar(id)
     },
   },
 }
@@ -39,5 +86,20 @@ export default {
   list-style: none;
   border: solid thin;
   border-color: rgb(232, 234, 236);
+}
+.far {
+  position: relative;
+  top: 20px;
+}
+
+.colorChanger {
+  color: blue;
+}
+.unstar {
+  position: relative;
+  left: 250px;
+  background-color: rgb(255, 255, 255);
+  border-color: gray;
+  border-width: thin;
 }
 </style>
