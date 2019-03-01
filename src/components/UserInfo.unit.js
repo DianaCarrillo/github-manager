@@ -20,6 +20,24 @@ describe('Displayed user correctly with query data', () => {
     })
     expect(wrapper.element).toMatchSnapshot()
   })
+  it('Renders correct userName', () => {
+    let localVue = createLocalVue()
+    const wrapper = shallowMount(UserInfo, { localVue })
+    wrapper.setData({
+      user: {
+        avatarUrl: 'https://avatars0.githubusercontent.com/u/39560661?v=4',
+        bio: 'Coder, psychologist, catlover',
+        name: 'Diana',
+        email: 'carrillorivera.diana@gmail.com',
+        status: {
+          id: '457524',
+          message: 'Working',
+        },
+      },
+    })
+    const userName = wrapper.findAll('p').at(0)
+    expect(userName.text()).toBe('Working')
+  })
 
   it('has a query', () => {
     const userInfo = gql`

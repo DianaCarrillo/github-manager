@@ -62,6 +62,7 @@
     "express": "4.16.x",
     "hygen": "2.1.2",
     "imagemin-lint-staged": "0.4.x",
+    "jest": "^24.1.0",
     "lint-staged": "8.1.x",
     "markdownlint-cli": "0.13.x",
     "node-sass": "4.11.x",
