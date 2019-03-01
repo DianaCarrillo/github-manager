@@ -2,19 +2,15 @@
   <div>
     <ul id="issues">
       <li class="list">
-        <img
-          class="imgIssue"
-          :src="iss.node.author.avatarUrl"
-          alt=""
-          width="40px"
-        />
-        <!-- <p id="login-name"> {{ iss.node.author.login }} </p> -->
         <h3 id="issue"> Issue #{{ iss.node.number }}</h3>
         <p>Title: {{ iss.node.title }}</p>
         <p v-if="iss.node.state === 'OPEN'" id="green"> {{ iss.node.state }}</p>
         <p v-else id="red"> {{ iss.node.state }}</p>
         <p> {{ iss.node.body }}</p>
-        <p v-for="reaction in iss.node.reactions.edges" :key="reaction.id">
+        <p
+          v-for="reaction in iss.node.reactions && iss.node.reactions.edges"
+          :key="reaction.id"
+        >
           <b>Reactions: </b> {{ reaction.node.content }}</p
         >
         <p> </p>
@@ -36,13 +32,10 @@ export default {
 </script>
 <style>
 #issues {
-  position: relative;
+  padding: 3%;
   margin-right: 300px;
   margin-left: 300px;
-  border: solid;
-  border-radius: 30px;
-
-  /* left: 600px; */
+  border: solid thin;
 }
 .list {
   list-style: none;

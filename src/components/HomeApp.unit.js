@@ -69,18 +69,6 @@ describe('./HomeApp', () => {
                     name: 'graphql-vue-apollo',
                   },
                 },
-                {
-                  node: {
-                    id: 'MDEwOlJlcG9zaXRvcnkxNzEyMDIzMzM=',
-                    name: 'graphql-v',
-                  },
-                },
-                {
-                  node: {
-                    id: 'MDEwOlJlcG9zaXRvcnkxNzEzNzUyMzE=',
-                    name: 'github-manager',
-                  },
-                },
               ],
             },
           ],

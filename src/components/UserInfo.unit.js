@@ -1,5 +1,6 @@
 import UserInfo from './UserInfo.vue'
-import { createLocalVue, shallowMount } from '@vue/test-utils'
+import gql from 'graphql-tag'
+import { createLocalVue, shallowMount, mount } from '@vue/test-utils'
 
 describe('Displayed user correctly with query data', () => {
   it('displayed information query data correctly', () => {
@@ -14,6 +15,34 @@ describe('Displayed user correctly with query data', () => {
         status: {
           id: '457524',
           message: 'Working',
+        },
+      },
+    })
+    expect(wrapper.element).toMatchSnapshot()
+  })
+
+  it('has a query', () => {
+    const userInfo = gql`
+      query user {
+        user(login: "DianaCarrillo") {
+          avatarUrl
+          bio
+          name
+          email
+          status {
+            id
+            message
+          }
+        }
+      }
+    `
+    const query = jest.fn(async () => {
+      await userInfo
+    })
+    const wrapper = mount(UserInfo, {
+      mocks: {
+        $apollo: {
+          query,
         },
       },
     })

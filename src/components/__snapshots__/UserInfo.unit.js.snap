@@ -10,3 +10,39 @@ exports[`Displayed user correctly with query data displayed information query da
   <p> Bio: Coder, psychologist, catlover</p>
 </section>
 `;
+
+exports[`Displayed user correctly with query data has a query 1`] = `
+<section
+  id="user"
+>
+  <div
+    class="userClass"
+  >
+    <img
+      alt=""
+      height="370px"
+      width="350"
+    />
+     
+    <p>
+      
+    </p>
+  </div>
+   
+  <p
+    id="userName"
+  >
+     
+  </p>
+   
+  <p
+    id="userEmail"
+  >
+     
+  </p>
+   
+  <p>
+     Bio: 
+  </p>
+</section>
+`;

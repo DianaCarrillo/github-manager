@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`./RemoveButton.vue Renders repository query 1`] = `<div><button id="btnRemove" type="submit">Click to remove HOORAY</button></div>`;
